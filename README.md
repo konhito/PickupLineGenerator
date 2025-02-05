@@ -6,20 +6,14 @@
 <div align="center" >
 
 ![NextJs](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![GitHub repo size](https://img.shields.io/github/repo-size/shivabhattacharjee/PickMeUp)
+
 
 
   </div>
   <p align="center">
     Git-a-life: where you find your skill issues
     <br/>
-    <br/>
-    <a href="https://pickmeup.theshiva.xyz/">View Demo</a>
-    .
-    <a href="https://github.com/ShivaBhattacharjee/pickmeup/issues">Report Bug</a>
-    .
-    <a href="https://github.com/ShivaBhattacharjee/pickmeup/issues">Request Feature</a>
-  </p>
+  
 </p>
 
 
@@ -97,13 +91,13 @@ Server will start at http://localhost:3000/
 ## Host your own
 * ## Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FShivaBhattacharjee%pickmeup)
+[![Deploy with Vercel](https://vercel.com/button)]
 <br/>
 <br/>
 
 * ## Netlify
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ShivaBhattacharjee/pickmeup)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)]
 <br/>
 <br/>
 
@@ -114,7 +108,7 @@ Server will start at http://localhost:3000/
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/ShivaBhattacharjee/pickmeup/issues) to discuss it
+* If you have suggestions for adding or removing projects, feel free to [open an issue] to discuss it
 
 * Please make sure you check your spelling and grammar.
 
@@ -137,13 +131,8 @@ We kindly ask that you provide as much detail as possible when submitting an iss
 
 Thank you for your cooperation, and we look forward to hearing from you!
 
-## Code of conduct
 
-Developers are requested to go through our <a href="https://github.com/ShivaBhattacharjee/pickmeup/blob/main/CODE_OF_CONDUCT.md">code of conduct</a> thoroughly to maintain a peaceful environment within our project.
 
-## License
-
-Distributed under the Apache License 2.0 . See [LICENSE](https://github.com/ShivaBhattacharjee/pickmeup/blob/main/LICENSE) for more information.
 
 
 ## Authors
