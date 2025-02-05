@@ -1,61 +1,70 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ClipboardIcon, CheckIcon } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ClipboardIcon, CheckIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
-import axios from 'axios'
-import { toast } from '@/hooks/use-toast'
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import axios from "axios";
+import { toast } from "@/hooks/use-toast";
 
 export default function PickupLineGenerator() {
-  const [personality, setPersonality] = useState('')
-  const [gender, setGender] = useState<'male' | 'female' | 'neutral'>('female')
-  const [pickupLine, setPickupLine] = useState('')
-  const [isGenerating, setIsGenerating] = useState(false)
-  const [copied, setCopied] = useState(false)
-
+  const [personality, setPersonality] = useState("");
+  const [gender, setGender] = useState<"male" | "female" | "neutral">("female");
+  const [pickupLine, setPickupLine] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const generatePickupLine = async () => {
-    if(!personality.trim()) {
+    if (!personality.trim()) {
       toast({
-        title: 'Personality field is required',
-        description: 'Please describe the personality of the person you want to use the pickup line on.',
-      })
-      return
+        title: "Personality field is required",
+        description:
+          "Please describe the personality of the person you want to use the pickup line on.",
+      });
+      return;
     }
-    setIsGenerating(true)
+    setIsGenerating(true);
     try {
-      const req = await axios.post('/api/generate-pickuplines', { personality: personality, gender: gender })
-      const res = await req.data
-      setPickupLine(res.data)
+      const req = await axios.post("/api/generate-pickuplines", {
+        personality: personality,
+        gender: gender,
+      });
+      const res = await req.data;
+      setPickupLine(res.data);
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error("Error in POST handler:", error);
         toast({
-          title: 'An error occurred',
+          title: "An error occurred",
           description: error.message,
-        })
+        });
       }
     } finally {
-      setIsGenerating(false)
+      setIsGenerating(false);
     }
-  }
+  };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(pickupLine)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+    navigator.clipboard.writeText(pickupLine);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <Card className="w-full max-w-md mx-auto bg-purple-900 bg-opacity-50 text-white">
@@ -75,14 +84,22 @@ export default function PickupLineGenerator() {
         </div>
         <div className="space-y-2 z-50">
           <Label htmlFor="gender">Select Gender</Label>
-          <Select value={gender} autoComplete='true' onValueChange={(value) => setGender(value as 'male' | 'female' | 'neutral')}>
-            <SelectTrigger id="gender" className="bg-purple-800 focus:outline-none focus:border-none bg-opacity-50 border-purple-600 text-white">
+          <Select
+            value={gender}
+            autoComplete="true"
+            onValueChange={(value) =>
+              setGender(value as "male" | "female" | "neutral")
+            }
+          >
+            <SelectTrigger
+              id="gender"
+              className="bg-purple-800 focus:outline-none focus:border-none bg-opacity-50 border-purple-600 text-white"
+            >
               <SelectValue placeholder="Select gender" />
             </SelectTrigger>
             <SelectContent className="bg-purple-800 text-white">
               <SelectItem value="male">Male</SelectItem>
               <SelectItem value="female">Female</SelectItem>
-              <SelectItem value="neutral">Neutral</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -91,11 +108,9 @@ export default function PickupLineGenerator() {
           disabled={isGenerating}
           className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
         >
-          {isGenerating ? (
-            'Hang on... 🧐 let me cook!!!'
-          ) : (
-            'Generate Pickup Line'
-          )}
+          {isGenerating
+            ? "Hang on... 🧐 let me cook!!!"
+            : "Generate Pickup Line"}
         </Button>
       </CardContent>
       <CardFooter>
@@ -129,6 +144,5 @@ export default function PickupLineGenerator() {
         </AnimatePresence>
       </CardFooter>
     </Card>
-  )
+  );
 }
-
