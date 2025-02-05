@@ -135,7 +135,4 @@ Thank you for your cooperation, and we look forward to hearing from you!
 
 
 
-## Authors
-
-* **Shiva Bhattacharjee** - [Shiva Bhattacharjee](https://github.com/ShivaBhattacharjee) - *PickMeUp*
 
